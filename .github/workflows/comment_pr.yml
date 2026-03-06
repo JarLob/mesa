@@ -16,7 +16,7 @@ jobs:
       - name: 'Download artifact'
         uses: actions/download-artifact@v8
         with:
-          name: timing_comparison
+          name: benchmarks
           path: ./benchmarks
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
