@@ -20,6 +20,11 @@ jobs:
           path: ${{ runner.temp }}/artifacts
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          echo "ls ${{ runner.temp }}/artifacts"
+          ls ${{ runner.temp }}/artifacts
+          echo "ls ${{ runner.temp }}/artifacts/benchmarks"
+          ls ${{ runner.temp }}/artifacts/benchmarks
       - name: Comment PR
         uses: actions/github-script@v8
         with:
