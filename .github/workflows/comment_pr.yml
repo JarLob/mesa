@@ -13,6 +13,12 @@ jobs:
       issues: write
     runs-on: ubuntu-latest
     steps:
+      - name: dump
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "test"          
+          echo "$GITHUB_CONTEXT"
       - name: 'Download artifact'
         uses: actions/download-artifact@v8
         with:
