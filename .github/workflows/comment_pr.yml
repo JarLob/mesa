@@ -1,0 +1,22 @@
+name: Performance benchmarks
+
+on:
+  workflow_run:
+    workflows: benchmarks.yml
+    types: 
+      - completed
+
+jobs:
+  comment_pr:
+    permissions:
+      pull-requests: write
+      issues: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Download artifact'
+        uses: actions/download-artifact@v8
+        with:
+          name: timing_comparison
+          path:  ${{ runner.temp }}/timing_comparison.base64
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
