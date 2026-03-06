@@ -17,14 +17,9 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: benchmarks
-          path: ${{ runner.temp }}/artifacts
+          path: ${{ runner.temp }}/artifacts/benchmarks
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - run: |
-          echo "ls ${{ runner.temp }}/artifacts"
-          ls ${{ runner.temp }}/artifacts
-          echo "ls ${{ runner.temp }}/artifacts/benchmarks"
-          ls ${{ runner.temp }}/artifacts/benchmarks
       - name: Comment PR
         uses: actions/github-script@v8
         with:
