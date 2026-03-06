@@ -30,7 +30,7 @@ jobs:
             const output_encoded = fs.readFileSync(path.join(temp, 'timing'), 'utf8');
             const output = Buffer.from(output_encoded, 'base64').toString('utf8');
             github.rest.issues.createComment({
-              issue_number: {{ github.event.workflow_run.pull_requests[0].number }},
+              issue_number: ${{ github.event.workflow_run.pull_requests[0].number }},
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: 'Performance benchmarks:\n\n' + output
