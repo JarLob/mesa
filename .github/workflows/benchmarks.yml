@@ -18,8 +18,6 @@ jobs:
       github.event.action == 'opened' ||
       github.event.action == 'ready_for_review'
     runs-on: ubuntu-latest
-    outputs:
-      output: ${{steps.compare_timings.outputs.timing_comparison}}
     steps:
       # Python and dependency setup
       - name: Set up Python
@@ -75,4 +73,10 @@ jobs:
         id: compare_timings
         run: |
           TIMING_COMPARISON=$(python compare_timings.py | base64 -w 0)  # Base64 encode the output
-          echo "timing_comparison=$TIMING_COMPARISON" >> $GITHUB_OUTPUT
+          echo "$TIMING_COMPARISON" >> ${{ runner.temp }}/timing_comparison.base64
+      - name: Upload timing comparison as artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: timing_comparison
+          path: ${{ runner.temp }}/timing_comparison.base64
+          if-no-files-found: error
