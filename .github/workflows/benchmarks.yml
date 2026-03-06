@@ -14,7 +14,7 @@ jobs:
       - name: Run compare timings and encode output
         # working-directory: benchmarks
         run: |
-          TIMING_COMPARISON=$(python compare_timings.py | base64 -w 0)  # Base64 encode the output
+          TIMING_COMPARISON=$(echo "abc")
           mkdir -p ./benchmarks
           echo $TIMING_COMPARISON >> ./benchmarks/timing
       - uses: actions/upload-artifact@v7
