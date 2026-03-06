@@ -2,7 +2,6 @@ name: Performance benchmarks
 
 on:
   pull_request:
-    types: [opened, ready_for_review, labeled]
     branches:
       - main
 
