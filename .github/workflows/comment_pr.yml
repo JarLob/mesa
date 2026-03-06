@@ -2,7 +2,7 @@ name: Publish performance benchmarks
 
 on:
   workflow_run:
-    workflows: benchmarks.yml
+    workflows: 'Performance benchmarks'
     types: 
       - completed
 
