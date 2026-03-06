@@ -5,9 +5,6 @@ on:
     types: [opened, ready_for_review, labeled]
     branches:
       - main
-    paths:
-      - '**.py'
-      - '.github/workflows/benchmarks.yml'
 
 jobs:
   run-benchmarks:
