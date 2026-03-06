@@ -28,8 +28,8 @@ jobs:
             const path = require('path');
             const temp = '${{ runner.temp }}/artifacts/benchmarks';
             const output = fs.readFileSync(path.join(temp, 'timing'), 'utf8');
-            output = Buffer.from(output, 'base64').toString('utf8'));
-            const issue_number = Number(fs.readFileSync(path.join(temp, 'pr_number'));
+            output = Buffer.from(output, 'base64').toString('utf8');
+            const issue_number = Number(fs.readFileSync(path.join(temp, 'pr_number')));
             github.rest.issues.createComment({
               issue_number: issue_number,
               owner: context.repo.owner,
