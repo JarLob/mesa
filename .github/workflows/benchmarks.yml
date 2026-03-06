@@ -13,13 +13,10 @@ jobs:
     steps:
       - name: Run compare timings and encode output
         # working-directory: benchmarks
-        env:
-          PR_NUMBER: ${{ github.event.number }}
         run: |
           TIMING_COMPARISON=$(python compare_timings.py | base64 -w 0)  # Base64 encode the output
           mkdir -p ./benchmarks
           echo $TIMING_COMPARISON >> ./benchmarks/timing
-          echo $PR_NUMBER > ./benchmarks/pr_number
       - uses: actions/upload-artifact@v7
         with:
           name: benchmarks
