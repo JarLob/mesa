@@ -17,6 +17,6 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: timing_comparison
-          path:  ${{ runner.temp }}/timing_comparison.base64
+          path: ./benchmarks
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
