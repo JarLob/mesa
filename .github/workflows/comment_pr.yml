@@ -1,4 +1,4 @@
-name: Performance benchmarks
+name: Publish performance benchmarks
 
 on:
   workflow_run:
