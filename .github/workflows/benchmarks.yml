@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run compare timings and encode output
-        working-directory: benchmarks
+        # working-directory: benchmarks
         env:
           PR_NUMBER: ${{ github.event.number }}
         run: |
